@@ -13,7 +13,7 @@ public class Manager extends Employee
 	private double bonus;//the amount of bonus they should receive
 	
         
-        public Manager(String name, double hours, double wage)
+        public Manager(PayrollType type,String name, double hours, double wage)
         {
             super(name);
             this.setHourlyWage(wage);

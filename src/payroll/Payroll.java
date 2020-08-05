@@ -35,6 +35,23 @@ public class Payroll
    catch(Exception e)
    {
      System.out.println("An exception was caught while trying to process employees: " + e.getMessage()); 
+     
+    
+     PayrollFactory factory = PayrollFactory.getInstance();
+     
+     Employee manager = factory.createEmployee(PayrollType.MANAGER);
+     
+     //Assigning the ENUM types to the objects
+     
+     Employee emp = factory.createEmployee(PayrollType.EMPLOYEE);
+     
+     
+     System.out.println("Name :"+manager.getName()+"  Hours :"+manager.getHours()+"  Wage :"+manager.getHourlyWage());
+     
+     //Impletementing the factory class here
+     
+     System.out.println("Name :"+emp.getName()+"  Hours :"+emp.getHours()+"  Wage :"+emp.getHourlyWage());
+    
    }
   }//end main method
 
@@ -60,16 +77,7 @@ private void run()
     double wage = Double.parseDouble(sc.nextLine());
     System.out.println("Do you want to create a manager? Type yes or no");
     String manager = sc.nextLine();
-    if(manager.equals("yes"))
-    {
-        Manager man = new Manager(name, numHours, wage);
-        employees[numEmployees]=man;
-    }
-    else
-    {
-        Employee emp = new Employee(name, numHours,wage);//create a new Employee with the given info
-        employees[numEmployees]= emp;//add the new employee to the array
-    }
+    
     
     System.out.println("Would you like to enter another employee (yes or no)?");
     String yesOrNo =sc.nextLine();

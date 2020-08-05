@@ -10,10 +10,11 @@ package payroll;
  * @author Liz Dancy, 2018
  *
  */
-public class Employee 
+ public class Employee 
 {
 
 	private String name;
+        private PayrollType type;
 	private double numHours;
 	private double hourlyWage;
 	
@@ -26,8 +27,11 @@ public class Employee
 		
 	}
         
-        public Employee(String givenName, double givenWage, double givenHours)
+        public Employee(PayrollType type,String givenName, double givenWage, double givenHours)
+                
+                //changing the constructor to add an ENUM type as a accepted parameter
         {
+            this.type=type;
             name = givenName;
             hourlyWage = givenWage;
             numHours = givenHours;
@@ -36,6 +40,14 @@ public class Employee
 	 * A constructor tht takes in the Employee's name
 	 * @param newName
 	 */
+        
+        public PayrollType getType(){   //Make accessors for the enum PAYROLLTYPE we created
+        
+        return this.type;
+            
+    }
+        
+        
 	public Employee(String newName)
 	{
 		setName(newName);
